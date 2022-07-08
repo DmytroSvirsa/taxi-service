@@ -1,7 +1,14 @@
 # Taxi service
 
+Django project for managing taxi service
+
 # Check it out!
 
+[Texi service project deployed on heroku](https://taxi-car-service.herokuapp.com/)
+
+Login: familiarization_user
+
+Password: her0ku_user_p@ss
 ## Installation
 
 Python must be already installed
