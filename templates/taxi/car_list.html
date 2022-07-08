@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Car list
+    <button type="button" class="btn btn-outline-primary">
+      <a href="{% url 'taxi:car-create' %}">Add</a>
+    </button>
+  </h1>
+  {% if car_list %}
+
+    <table class="table table-sm table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Registration number</th>
+          <th>Model</th>
+          <th>Manufacturer</th>
+          <th>Drivers</th>
+        </tr>
+      </thead>
+
+      {% for car in car_list %}
+        <tr>
+          <td>
+            <a href="{% url "taxi:car-detail" pk=car.id %} ">
+              {{ car.registration }}
+            </a>
+          </td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.manufacturer.name }}</td>
+          <td>{{ car.drivers.count }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+    <p>There are no cars in taxi</p>
+  {% endif %}
+{% endblock %}
+

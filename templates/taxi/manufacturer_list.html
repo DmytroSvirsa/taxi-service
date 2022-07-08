@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>
+      Manufacturer List
+      <button type="button" class="btn btn-outline-primary">
+        <a href="{% url 'taxi:manufacturer-create' %}">Add</a>
+      </button>
+    </h1>
+    {% if manufacturer_list %}
+      <table class="table table-sm table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+
+        {% for manufacturer in manufacturer_list %}
+            <tr>
+              <td>
+                  {{ manufacturer.name }}
+              </td>
+              <td>
+                  {{ manufacturer.country }}
+              </td>
+              <td>
+                <a href="{% url 'taxi:manufacturer-update' pk=manufacturer.id %}">
+                  Update
+                </a>
+              </td>
+              <td>
+                <a style="color: red"
+                  href="{% url 'taxi:manufacturer-delete' pk=manufacturer.id %}">
+                  Delete
+                </a>
+              </td>
+          </tr>
+        {% endfor %}
+      </table>
+
+    {% else %}
+        <p>There are no manufacturers in the service.</p>
+    {% endif %}
+{% endblock %}
