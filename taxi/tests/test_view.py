@@ -20,18 +20,6 @@ class PublicCarTest(TestCase):
         self.assertNotEqual(response.status_code, 200)
 
 
-# class PublicManufacturerTest(TestCase):
-#     def test_login_required(self):
-#         res = self.client.get(CAR_URL)
-#
-#         self.assertNotEqual(res.status_code, 200)
-#
-#     def test_create_login_required(self):
-#         response = self.client.get(CAR_CREATE_URL)
-#
-#         self.assertNotEqual(response.status_code, 200)
-
-
 class PrivateCarTest(TestCase):
     def setUp(self) -> None:
         self.user = get_user_model().objects.create_user(
