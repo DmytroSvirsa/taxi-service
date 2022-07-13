@@ -36,7 +36,7 @@ class DriverCreationForm(UserCreationForm):
         required=True,
         max_length=8,
         label="License number:",
-        widget=forms.TextInput(attrs={"placeholder": "FF99999"})
+        widget=forms.TextInput(attrs={"placeholder": "FFF99999"})
     )
 
     class Meta:
